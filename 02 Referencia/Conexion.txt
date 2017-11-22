@@ -1,0 +1,8 @@
+
+ https://64.76.78.194
+Fransua: vpnexterno39/Vpn3xt3rn039
+Accesos:
+o   192.168.30.40 (puerto 22)
+o   192.168.32.40 (puerto 22)
+o   192.168.32.41 (puerto 22)
+ 
