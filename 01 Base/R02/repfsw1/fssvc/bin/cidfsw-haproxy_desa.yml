@@ -1,0 +1,14 @@
+version: '2'
+services:
+    redis:
+        image: docker-registry:5000/haproxy:1.7.9-alpine
+        mem_limit: 512MB
+        volumes:
+            - /fssvc/haproxy/1.7.9-alpine/conf:/usr/local/etc/haproxy
+        ports:
+            - "6380:6380"
+        networks:
+           - mcda-red-desa
+networks:
+      mcda-red-desa:
+          external: true

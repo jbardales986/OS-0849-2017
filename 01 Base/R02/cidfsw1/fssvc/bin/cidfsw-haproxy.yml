@@ -1,0 +1,14 @@
+version: '2'
+services:
+    haproxy:
+        image: haproxy:1.7.9-alpine
+        mem_limit: 512MB
+        volumes:
+            - /fssvc/haproxy/1.7.9-alpine/conf:/usr/local/etc/haproxy
+        ports:
+            - "80:80"
+        networks:
+           - fsw-red
+networks:
+      fsw-red:
+          external: true
