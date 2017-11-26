@@ -1,0 +1,3 @@
+# disable protection - everybody can do what he wants
+[/]
+* = rw
