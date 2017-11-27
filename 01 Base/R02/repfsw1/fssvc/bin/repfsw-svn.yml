@@ -1,0 +1,24 @@
+version: '2'
+services:
+    repfsw-svn1:
+        image: apache2-subversion:1.9.7
+        container_name: repfsw-svn1
+        environment:
+          - NAME=svr_repfsw_svn1
+        volumes:
+          - /fssvc/svn/1.9.7/httpd-www:/home/httpd/www
+          - /fssvc/svn/1.9.7/httpd-conf:/home/httpd/conf
+          - /fssvc/svn/1.9.7/httpd-logs:/home/httpd/logs
+          - /fssvc/svn/1.9.7/svn-conf:/home/svn/conf
+          - /fssvc/svn/1.9.7/svn-data:/home/svn/data
+        ports:
+          - "9480:80"
+          - "9443:443"
+        expose:
+          - "80"
+          - "443"
+        networks:
+           - fsw-red
+networks:
+      fsw-red:
+          external: true

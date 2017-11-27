@@ -1,14 +1,18 @@
 version: '2'
 services:
-    sonarqube:
+    cidfsw-sonarqube1:
         image: sonarqube:6.7-alpine
+        container_name: cidfsw-sonarqube1
         environment:
-          - SONARQUBE_JDBC_URL=jdbc:oracle:thin:@192.168.30.40:1521/devops
+          - NAME=svr_cidfsw_sonarqube1
         volumes:
           - /fssvc/sonarqube/6.7-alpine/conf:/opt/sonarqube/conf
           - /fssvc/sonarqube/6.7-alpine/data:/opt/sonarqube/data
           - /fssvc/sonarqube/6.7-alpine/extensions:/opt/sonarqube/extensions
           - /fssvc/sonarqube/6.7-alpine/bundle-plugins:/opt/sonarqube/lib/bundled-plugins
+        expose:
+          - "9000"
+          - "9092"
         ports:
             - "9000:9000"
             - "9092:9092"

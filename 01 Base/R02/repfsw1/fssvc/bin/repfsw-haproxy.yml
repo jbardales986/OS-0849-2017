@@ -1,16 +1,16 @@
 version: '2'
 services:
-    cidfsw-haproxy1:
+    repfsw-haproxy1:
         image: haproxy:1.7.9-alpine
-        container_name: cidfsw-haproxy1
+        container_name: repfsw-haproxy1
         environment:
-          - NAME=name_cidfsw-haproxy1
+          - NAME=svr_repfsw-haproxy1
         volumes:
             - /fssvc/haproxy/1.7.9-alpine/conf:/usr/local/etc/haproxy
         ports:
             - "80:80"
         expose:
-            - "80"
+          - "80"
         networks:
            - fsw-red
 networks:

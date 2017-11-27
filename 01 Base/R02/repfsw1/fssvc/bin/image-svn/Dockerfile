@@ -1,4 +1,4 @@
-FROM httpd:2.4-alpine
+FROM httpd:2.4.27-alpine
 MAINTAINER FRANSUA <fransua79@gmail.com>
 
 RUN apk --no-cache add apache2-utils=2.4.27-r1 apache2-ldap=2.4.27-r1 apache2-webdav=2.4.27-r1 mod_dav_svn=1.9.7-r0 subversion=1.9.7-r0
