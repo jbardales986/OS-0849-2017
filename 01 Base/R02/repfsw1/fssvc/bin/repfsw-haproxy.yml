@@ -9,8 +9,10 @@ services:
             - /fssvc/haproxy/1.7.9-alpine/conf:/usr/local/etc/haproxy
         ports:
             - "80:80"
+            - "443:443"
         expose:
           - "80"
+          - "443"
         networks:
            - fsw-red
 networks:

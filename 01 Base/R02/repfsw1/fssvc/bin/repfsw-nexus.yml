@@ -1,13 +1,14 @@
 version: '2'
 services:
     repfsw-nexus1:
-        image: sonatype/nexus3:3.6.1
+        image: sonatype/nexus3:3.6.2
         container_name: repfsw-nexus1
         environment:
           - NAME=svr_repfsw_nexus1
           - NEXUS_CONTEXT=nexus3
+          - INSTALL4J_ADD_VM_PARAMS=-Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g
         volumes:
-          - /fssvc/nexus/3.6.1/data:/nexus-data
+          - /fssvc/nexus/3.6.2/data:/nexus-data
         ports:
             - "8081:8081"
         expose:
