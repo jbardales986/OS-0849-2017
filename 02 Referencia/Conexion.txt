@@ -6,3 +6,49 @@ o   192.168.30.40 (puerto 22)
 o   192.168.32.40 (puerto 22)
 o   192.168.32.41 (puerto 22)
  
+sudo touch /fssvc/bin/00-repfsw-start.sh
+sudo chmod +x /fssvc/bin/*.sh
+sudo vim /fssvc/bin/01-repfsw-start.sh
+	#!/bin/sh
+	nohup /fssvc/bin/22-repfsw-svn-redeploy.sh &
+	nohup /fssvc/bin/32-repfsw-nexus-redeploy.sh &
+	nohup /fssvc/bin/12-repfsw-haproxy-redeploy.sh &
+	
+
+ 
+sudo touch /etc/systemd/system/repfsw.service
+sudo chmod 664 /etc/systemd/system/repfsw.service
+sudo vim /etc/systemd/system/repfsw.service
+[Unit]
+Description=Docker containers de Servidor
+After=docker.service
+
+[Service]
+WorkingDirectory=/fssvc/bin
+ExecStart=/fssvc/bin/01-repfsw-start.sh
+Type=simple
+Environment="FabricaSoftware=production"
+TimeoutSec=infinity
+
+[Install]
+WantedBy=default.target
+
+
+
+systemctl daemon-reload
+systemctl start repfsw.service
+systemctl enable repfsw.service
+
+	[Unit]
+	Description=Docker containers de Servidor
+	After=docker.service
+
+	[Service]
+	WorkingDirectory=/fssvc/bin
+	ExecStart=/fssvc/bin/01-repfsw-start.sh
+	Type=simple
+	PIDFile=/run/01-repfsw-start.pid
+	TimeoutSec=infinity
+
+	[Install]
+	WantedBy=multi-user.target
