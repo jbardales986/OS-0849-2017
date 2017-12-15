@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear 
 
 echo ""
@@ -7,3 +7,5 @@ docker-compose -f ./repfsw-nexus.yml stop
 docker-compose -f ./repfsw-nexus.yml rm -f
 #docker-compose -f ./repfsw-nexus.yml pull   
 docker-compose -f ./repfsw-nexus.yml up -d
+
+exit 0

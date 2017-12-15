@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear 
 
 echo ""
@@ -7,3 +7,4 @@ docker-compose -f ./cidfsw-haproxy.yml stop
 docker-compose -f ./cidfsw-haproxy.yml rm -f
 #docker-compose -f ./cidfsw-haproxy.yml pull   
 docker-compose -f ./cidfsw-haproxy.yml up -d
+exit 0

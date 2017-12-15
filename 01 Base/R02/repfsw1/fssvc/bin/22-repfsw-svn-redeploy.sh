@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear 
 
 echo ""
@@ -7,3 +7,5 @@ docker-compose -f ./repfsw-svn.yml stop
 docker-compose -f ./repfsw-svn.yml rm -f  
 #docker-compose -f ./repfsw-svn.yml pull
 docker-compose -f ./repfsw-svn.yml up -d
+
+exit 0
